@@ -147,9 +147,16 @@
   const scrubCards = hero ? $$('[data-scrub-x],[data-scrub-y]', hero) : [];
   const appts = $$('[data-appt]');
   const pastSecs = $$('[data-roll],[data-cta]');
+  const fab = d.querySelector('[data-wafab]');
+  const fabAvoid = $$('.foot__copy, .foot__credit');
   function docTop(el) { return el.getBoundingClientRect().top + scrollY; }
   function onScroll() {
     const vh = innerHeight, sy = scrollY;
+    let fabOff = false;
+    if (fab) {
+      const f = fab.getBoundingClientRect();
+      fabOff = fabAvoid.some(e => { const r = e.getBoundingClientRect(); return r.right > f.left - 12 && r.left < f.right + 12 && r.bottom > f.top - 12 && r.top < f.bottom + 12; });
+    }
     if (hero) {
       const top = docTop(hero), bottom = top + hero.offsetHeight;
       const start = Math.max(0, top - vh), end = Math.max(start + 1, bottom - vh);
@@ -174,6 +181,7 @@
       sec.classList.toggle('is-active', RM || (r.top <= 0 && r.bottom > 0));
     });
     pastSecs.forEach(sec => { sec.classList.toggle('is-past', sec.getBoundingClientRect().bottom <= vh); });
+    if (fab) fab.classList.toggle('is-off', fabOff);
   }
   let ticking = false;
   const req = () => { if (!ticking) { ticking = true; requestAnimationFrame(() => { ticking = false; onScroll(); }); } };
