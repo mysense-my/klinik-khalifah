@@ -283,6 +283,18 @@
   }
 
   
+  function svcMore(b) {
+    const sec = b.closest('.svch'), label = b.querySelector('.svch__more-label');
+    b.addEventListener('click', () => {
+      const y = b.getBoundingClientRect().top;
+      const all = sec.classList.toggle('is-all');
+      b.setAttribute('aria-expanded', String(all));
+      label.textContent = all ? b.dataset.less : b.dataset.more;
+      if (!all) window.scrollBy({ top: b.getBoundingClientRect().top - y, behavior: 'instant' });
+    });
+  }
+
+  
   function boot() {
     $$('[data-fx]').forEach(textFx);
     $$('[data-pop]').forEach(pop);
@@ -295,6 +307,7 @@
     $$('[data-faq]').forEach(faqInit);
     $$('[data-nav]').forEach(navInit);
     $$('[data-book-dialog]').forEach(bookInit);
+    $$('[data-svc-more]').forEach(svcMore);
     $$('[data-convert]').forEach(a => a.addEventListener('click', () => { if (!a.hasAttribute('data-book')) convert(); }));
     addEventListener('scroll', req, { passive: true });
     addEventListener('resize', req);
