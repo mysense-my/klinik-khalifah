@@ -147,7 +147,7 @@
   const scrubCards = hero ? $$('[data-scrub-x],[data-scrub-y]', hero) : [];
   const appts = $$('[data-appt]');
   const pastSecs = $$('[data-roll],[data-cta]');
-  const fab = d.querySelector('[data-wafab]');
+  const fab = d.querySelector('[data-fabs]');
   const fabAvoid = $$('.foot__copy, .foot__credit');
   function docTop(el) { return el.getBoundingClientRect().top + scrollY; }
   function onScroll() {
