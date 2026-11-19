@@ -5,7 +5,7 @@
 @font-face{font-family:'Poppins';font-style:normal;font-weight:500;font-display:swap;src:url(../fonts/poppins-500-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 :root{--sp-text-03:linear(0, 0.0575, 0.1803, 0.3208, 0.4551, 0.5729, 0.6711, 0.7501, 0.8122, 0.8601, 0.8966, 0.924, 0.9445, 0.9596, 0.9708, 0.9789, 0.9848, 0.9891, 0.9922, 0.9944, 0.996, 0.9972, 0.998, 0.9986, 1);--sp-text-03-d:0.3s;--sp-text-04:linear(0, 0.0575, 0.1803, 0.3208, 0.4551, 0.5729, 0.6711, 0.7501, 0.8122, 0.8601, 0.8966, 0.924, 0.9445, 0.9596, 0.9708, 0.9789, 0.9848, 0.9891, 0.9922, 0.9944, 0.996, 0.9972, 0.998, 0.9986, 1);--sp-text-04-d:0.4s;--sp-text-05:linear(0, 0.0387, 0.1271, 0.2361, 0.3486, 0.4551, 0.5509, 0.6342, 0.7049, 0.7638, 0.8122, 0.8515, 0.8832, 0.9085, 0.9286, 0.9445, 0.957, 0.9667, 0.9743, 0.9802, 0.9848, 0.9884, 0.9911, 0.9932, 0.9948, 0.996, 0.997, 0.9977, 0.9983, 0.9987, 1);--sp-text-05-d:0.5s;--sp-soft-04:linear(0, 0.0574, 0.1873, 0.3435, 0.4978, 0.635, 0.7484, 0.8369, 0.9025, 0.9487, 0.9795, 0.9985, 1.0091, 1.0139, 1.0152, 1.0142, 1.0123, 1.0099, 1.0076, 1.0055, 1.0038, 1.0024, 1.0015, 1.0008, 1);--sp-soft-04-d:0.4s;--sp-faq-08:linear(0, 0.024, 0.0872, 0.177, 0.2831, 0.3965, 0.5103, 0.6192, 0.7194, 0.8083, 0.8846, 0.9478, 0.9982, 1.0365, 1.0639, 1.0817, 1.0915, 1.0948, 1.0929, 1.0871, 1.0788, 1.0688, 1.0581, 1.0473, 1.0369, 1.0274, 1.0188, 1.0115, 1.0054, 1.0005, 0.9968, 0.9941, 0.9924, 0.9914, 0.991, 0.9912, 0.9917, 0.9925, 0.9934, 0.9944, 0.9954, 0.9964, 0.9973, 0.9982, 0.9989, 0.9994, 0.9999, 1.0003, 1);--sp-faq-08-d:0.8s;--sp-btn:linear(0, 0.0352, 0.1108, 0.1996, 0.2888, 0.3726, 0.4488, 0.5169, 0.5772, 0.6302, 0.6768, 0.7175, 0.7532, 0.7843, 0.8116, 0.8354, 0.8562, 0.8744, 0.8903, 0.9041, 0.9163, 0.9268, 0.9361, 0.9442, 0.9512, 0.9574, 0.9628, 0.9675, 0.9716, 0.9752, 0.9783, 0.9811, 0.9835, 0.9856, 0.9874, 0.989, 0.9904, 0.9916, 1);--sp-btn-d:0.642s;}@supports not (transition-timing-function: linear(0, 1)){:root{--sp-text-03:cubic-bezier(.22,1,.36,1);--sp-text-04:cubic-bezier(.22,1,.36,1);--sp-text-05:cubic-bezier(.22,1,.36,1);--sp-soft-04:cubic-bezier(.22,1,.36,1);--sp-faq-08:cubic-bezier(.22,1,.36,1);--sp-btn:cubic-bezier(.22,1,.36,1);}}
 :root {
-  --c-heading: #2B3990;     
+  --c-heading: #18205E;     
   --c-dark: #2E3192;        
   --c-btn: #2B3990;         
   --c-sky: #8EC5E3;         
@@ -14,7 +14,7 @@
   --c-green: #009444;       
   --c-accent: var(--c-sky);
   --c-card: #F5F5F5;        
-  --c-body: #59595d;        
+  --c-body: #2E2F37;        
   --c-line: #cbcbcb;
   --c-ink: #191919;         
   --c-white: #fff;
@@ -113,7 +113,7 @@ ul { list-style: none; }
 .shead { display: flex; flex-direction: column; align-items: center; gap: 20px; width: 100%; max-width: 680px; margin: 0 auto; }
 .shead__top { display: flex; flex-direction: column; align-items: center; gap: 12px; width: 100%; }
 .shead__title { width: 100%; text-align: center; }
-.shead__para { width: 100%; text-align: center; }
+.shead__para { width: 100%; text-align: center; color: var(--c-heading); }   
 .shead--left { align-items: flex-start; margin: 0; }
 .shead--left .shead__top { align-items: flex-start; }
 .shead--left .shead__title, .shead--left .shead__para { text-align: left; }
@@ -209,7 +209,7 @@ ul { list-style: none; }
 .hero__w { display: block; white-space: pre; }
 .hero__hl { display: flex; align-items: center; padding: 0 0 0 3px; border-left: 2.5px solid var(--c-sky-deep);
   background: linear-gradient(90deg, var(--c-sky-strong) 0%, rgba(121, 184, 224, 0) 100%); }
-.hero__sub { max-width: 775px; text-align: center; }
+.hero__sub { max-width: 775px; text-align: center; color: var(--c-heading); }   
 .hero__btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; width: 100%; }
 .hero__grid { display: grid; grid-template-columns: repeat(3, minmax(50px, 1fr)); gap: 24px; width: 100%; }
 .hcard { position: relative; display: flex; flex-direction: column; gap: 10px; padding: 10px; border-radius: 16px; align-self: start;
@@ -436,6 +436,7 @@ ul { list-style: none; }
 .foot__midtop { display: flex; flex-direction: column; align-items: center; gap: 20px; width: 100%; }
 .foot__brand img { height: 48px; width: auto; }
 .foot__blurb, .foot__contact { color: #fff; text-align: center; }
+.foot__text { color: #fff; }
 .foot__contact a { transition: color var(--sp-soft-04-d) var(--sp-soft-04); }
 .foot__bottom { position: relative; z-index: 2; display: flex; justify-content: center; padding: 30px var(--pad-x); }
 .foot__bottom-in { display: flex; align-items: center; justify-content: space-between; gap: 24px; }

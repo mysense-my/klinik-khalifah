@@ -245,24 +245,10 @@
   
   function bookInit(dlg) {
     const form = dlg.querySelector('[data-wa-form]');
-    const branch = form.querySelector('[data-branch]');
     const svc = form.querySelector('[data-service-select]');
-    const note = form.querySelector('[data-call-text]');
-    const label = form.querySelector('[data-submit-label]');
     const submit = form.querySelector('[data-submit]');
-    const opt = () => branch.options[branch.selectedIndex];
-    function sync() {
-      const o = opt(), wa = o.dataset.wa;
-      label.textContent = wa ? form.dataset.labelWa : form.dataset.labelCall;
-      note.hidden = !!wa;
-      note.textContent = wa ? '' : form.dataset.callNote.replace('{phone}', o.dataset.phone);
-      $$('[required]', form).forEach(el => { if (el !== branch) el.dataset.req = '1'; });
-      $$('[data-req]', form).forEach(el => { el.required = !!wa; });
-    }
-    branch.addEventListener('change', sync);
     function open(service) {
       if (service) { const m = Array.from(svc.options).find(o => o.text === service); if (m) svc.selectedIndex = m.index; }
-      sync();
       if (typeof dlg.showModal === 'function') dlg.showModal(); else dlg.setAttribute('open', '');
       de.classList.add('is-locked');
     }
@@ -281,16 +267,14 @@
     }));
     form.addEventListener('submit', e => {
       e.preventDefault();
-      const o = opt();
-      if (!o.dataset.wa) { convert(); location.href = 'tel:' + o.dataset.tel; return; }
       if (!form.reportValidity()) return;
       const f = new FormData(form);
-      const lines = [form.dataset.greeting.replace('{branch}', o.dataset.name)];
+      const lines = [form.dataset.greeting];
       $$('[data-wa-label]', form).forEach(el => {
         const v = (f.get(el.name) || '').toString().trim();
         if (v) lines.push(`${el.dataset.waLabel}: ${v}`);
       });
-      const url = `https://wa.me/${o.dataset.wa}?text=${encodeURIComponent(lines.join('\n'))}`;
+      const url = `https://wa.me/${form.dataset.wa}?text=${encodeURIComponent(lines.join('\n'))}`;
       submit.classList.add('is-success');
       convert();
       window.open(url, '_blank', 'noopener');
